@@ -21,7 +21,8 @@
             </div>
 
             <div class="text-center">
-                <input type="submit" name="enviar" value="Buscar" class="mb-3 btn btn-success fw-bold px-4">
+                <input type="submit" name="enviar" value="Buscar" class="me-4 mb-3 btn btn-success fw-bold px-4">
+                <input type="submit" name="mostrarTodas" value="Mostrar Todas" class="mb-3 btn btn-light text-success fw-bold px-4">
             </div>
         </form>
 
@@ -54,31 +55,35 @@
                 ]
             ];
 
-            if (
-                isset($_POST['busqueda']) && !empty($_POST['busqueda'])
-            ) {
-                $busqueda = $_POST['busqueda'];
+            $mostrarTodas = isset($_POST['mostrarTodas']);
 
-                foreach ($peliculas as $pelicula) {
-                    print strpos($pelicula['titulo'], $busqueda);
-                    if ((strpos($pelicula['titulo'], $busqueda))) {
-                        echo "<tr>";
-                        echo "<td>" . $pelicula['titulo'] . "</td>";
-                        echo "<td><img src='" . $pelicula['imagen'] . "' alt='" . $pelicula['titulo'] . "' width='100'></td>";
-                        echo "</tr>";
-                    }
-                }
-            } else {
+            if ($mostrarTodas || !isset($_POST['busqueda']) || empty($_POST['busqueda'])) {
                 foreach ($peliculas as $pelicula) {
                     echo "<tr>";
                     echo "<td>" . $pelicula['titulo'] . "</td>";
                     echo "<td><img src='" . $pelicula['imagen'] . "' alt='" . $pelicula['titulo'] . "' width='100'></td>";
                     echo "</tr>";
                 }
-                echo "</table>";
-                echo "</div>";
+            } else {
+                $busqueda = strtolower($_POST['busqueda']);
+                $encontradas = false;
+
+                foreach ($peliculas as $pelicula) {
+                    if (strpos(strtolower($pelicula['titulo']), $busqueda) !== false) {
+                        echo "<tr>";
+                        echo "<td>" . $pelicula['titulo'] . "</td>";
+                        echo "<td><img src='" . $pelicula['imagen'] . "' alt='" . $pelicula['titulo'] . "' width='100'></td>";
+                        echo "</tr>";
+                        $encontradas = true;
+                    }
+                }
+
+                if (!$encontradas) {
+                    echo "<tr><td colspan='2' class='text-center text-danger fw-bold'>No se encontraron resultados.</td></tr>";
+                }
             }
             ?>
+
 
 </body>
 
