@@ -65,7 +65,7 @@ function juegoMates() {
 
         continuar = confirm("¿Desea continuar?");
     } while (continuar);
-
+    
     alert("Preguntas Falladas:\n" + (preguntasFalladas.length ? preguntasFalladas.join("\n") : "Ninguna"));
 
     alert("Preguntas Correctas:\n" + (preguntasCorrectas.length ? preguntasCorrectas.join("\n") : "Ninguna"));
