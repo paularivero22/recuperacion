@@ -45,11 +45,13 @@
             if (isset($coches[$marcaCoche])) {
                 echo "<div class='mt-4 p-4 border rounded bg-light'>";
                 echo "<h3 class='text-primary fw-bold'>Marca: $marcaCoche </h3>";
-                echo "Modelos: ";
 
+                echo "<form>";
                 foreach ($coches[$marcaCoche] as $modelo) {
                     echo "<input type='text' placeholder='$modelo'></input>";
                 }
+                echo "</form>";
+
                 echo "<div class='text-center'>";
                 echo "<input type='submit' name='actualizar' value='Actualizar' class='me-4 mb-3 btn btn-success fw-bold px-4'>";
                 echo "</div>";
