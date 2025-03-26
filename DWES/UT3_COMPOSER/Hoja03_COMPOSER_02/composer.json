@@ -1,19 +1,19 @@
 {
-    "name": "paula/hoja03_composer_01",
+    "name": "usuario/hoja03_composer_02",
     "type": "project",
     "authors": [
         {
-            "name": "paula",
+            "name": "paularivero22",
             "email": "priveroh01@educantabria.es"
         }
     ],
     "minimum-stability": "stable",
     "require": {
-        "brick/math": "^0.13.0"
+        "phpmailer/phpmailer": "^6.9"
     },
     "autoload": {
         "psr-4": {
-            "Banco\\": "src/Banco/"
+            "App\\": "app/"
         }
     },
     "scripts": {
