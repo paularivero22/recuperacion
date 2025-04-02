@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <form>
+        <h1>Editar Factura</h1>
+        <label for="clienteNIF">NIF del Cliente: </label>
+        <input type="text" id="clienteNIF" />
+        <br /><br/>
+
+        <label for="fechaFactura">Fecha: </label>
+        <input type="text" id="fechaFactura" />
+        <br /><br/>
+
+        <label for="horaFactura">Hora: </label>
+        <input type="time" id="horaFactura" />
+        <br /><br/>
+
+        <button id="btnEditarFactura">Editar</button>
+        <br /><br/> <br /><br/>
+    </form>
+
+    <form>
+        <h1>Agregar Linea</h1>
+        <label for="concepto">Concepto: </label>
+        <input type="text" id="concepto" />
+        <br /><br/>
+
+        <label for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad" />
+        <br /><br/>
+
+        <label for="precio">Precio: </label>
+        <input type="number" step="0.01" id="precio" />
+        <br /><br/>
+
+        <button id="btnAgregarLinea">Agregar Linea</button>
+        <button id="btnEliminarLinea">Eliminar Linea</button>
+    </form>
+</body>
+
+</html>
