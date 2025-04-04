@@ -5,3 +5,5 @@ class Utilidades {
         
     }
 }
+
+export default Utilidades;

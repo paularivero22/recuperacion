@@ -10,7 +10,7 @@ class Factura {
     constructor() {
         let fechaActual = new Date();
         this.clienteNIF = "";
-        this.fecha = `${fechaActual.getDay()}-${fechaActual.getMonth()}-${fechaActual.getFullYear()}}`;
+        this.fecha = `${fechaActual.getDate()}-${fechaActual.getMonth() + 1}-${fechaActual.getFullYear()}`;
         this.hora = `${fechaActual.getHours()}:${fechaActual.getMinutes()}`;
         this.pagada = false;
         this.lineas = [];
@@ -29,7 +29,7 @@ class Factura {
     get numeroArticulos() {
         let suma = 0;
         for (let linea of this.lineas) {
-            suma++;
+            suma += linea.cantidad;
         }
         return suma;
     }
@@ -72,4 +72,3 @@ class Factura {
 }
 
 export default Factura;
-export {importeTotal, numeroArticulos, imprimirFactura, agregarLinea, eliminarLinea};
