@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestión de Biblioteca</title>
+    <script type="module" src="./gestorBiblioteca.js" defer></script>
 </head>
 <body>
-    <div class="table" id="table">
-        <div class="celda header">ID</div>
-        <div class="celda header">Titulo</div>
-        <div class="celda header">ISBN</div>
-        <div class="celda header">ID del Autor</div>
-        <div class="celda header">ID de la Biblioteca</div>
-        <div class="celda header">Prestamos</div>
-        <div class="celda header">Disponible</div>
+    <h1>Gestor de Bibliotecas</h1>
+    <nav>
+        <button id="verAutores">Autores</button>
+        <button id="verLibros">Libros</button>
+        <button id="verBibliotecas">Bibliotecas</button>
+    </nav>
+    <br/>
+
+    <section id="buscador">
+        <input type="text" id="inputBuscar">
+
+        <select id="filtro">
+            <option value="libro">Libro</option>
+            <option value="autor">Autor</option>
+            <option value="todo">Todo</option>
+        </select>
+
+        <button id="btnBuscar">Buscar</button>
+    </section>
+
+    <div id="app">
+
     </div>
 </body>
 </html>
