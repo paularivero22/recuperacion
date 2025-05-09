@@ -1,4 +1,4 @@
-import ValidacionError from './ValidacionError.js';
+import ValidacionError from '../ValidacionError.js';
 
 export function validarNombre(valor, callback) {
     let numeros = 0;

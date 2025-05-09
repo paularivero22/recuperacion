@@ -1,5 +1,5 @@
 import { validarNombre, validarContrasenia, validarEmail, validarFechaNac } from './validacionesPromesas.js';
-import { guardarFormulario, mostrarError } from "./Utilidades.js";
+import { guardarFormulario, mostrarError } from "../Utilidades.js";
 
 function validarFormulario(nombre, contrasenia, email, fechaNacimiento) {
     validarNombre(nombre)
@@ -30,6 +30,11 @@ botonGuardar.addEventListener("click", function (event) {
     const contrasenia = document.getElementById('password').value;
     const email = document.getElementById('email').value;
     const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+
+    const erroresPrevios = document.querySelectorAll(".error");
+    for(let error of erroresPrevios) {
+        error.classList.remove('error');
+    }
 
     validarFormulario(nombre, contrasenia, email, new Date(fechaNacimiento));
 });

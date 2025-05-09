@@ -7,4 +7,6 @@ export function guardarFormulario(datos) {
 
 export function mostrarError(error) {
     console.log(error.message);
+    let campo = document.getElementById(error.nombreCampo);
+    campo.classList.add('error');
 }

@@ -1,4 +1,4 @@
-import ValidacionError from './ValidacionError.js';
+import ValidacionError from '../ValidacionError.js';
 
 export function validarNombre(valor) {
     let numeros = 0;
@@ -10,7 +10,7 @@ export function validarNombre(valor) {
 
     return new Promise((resuelve, rechazo) => {
         if (valor.length >= 3 && numeros === 0) {
-            resuelve(null);
+            resuelve(true);
         } else {
             rechazo(new ValidacionError('El nombre debe tener al menos 3 caracteres y no debe contener numeros', 'nombre'));
         }
@@ -38,7 +38,7 @@ export function validarContrasenia(valor) {
 
     return new Promise((resuelve, rechazo) => {
         if (numeros > 0 && contieneMayusculas && contieneMinusculas) {
-            resuelve(null);
+            resuelve(true);
         } else {
             rechazo((new ValidacionError('La contraseña no es valida', 'password')));
         }
@@ -51,7 +51,7 @@ export function validarEmail(valor) {
     
     return new Promise((resuelve, rechazo) => {
         if (regex.test(valor)) {
-            resuelve(null);
+            resuelve(true);
         } else {
             rechazo(new ValidacionError('El email no es válido', 'email'));
         }
@@ -69,7 +69,7 @@ export function validarFechaNac(valor) {
 
     return new Promise((resuelve, rechazo) => {
         if (edad >= 18 && edad <= 23) {
-            resuelve(null);
+            resuelve(true);
         } else {
             rechazo(new ValidacionError('La edad debe estar entre 18 y 24 años', 'fechaNacimiento'));
         }
