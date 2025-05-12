@@ -1,6 +1,6 @@
 'use strict';
 
-function rectangulo(altura) {
+function rombo(altura) {
     // Primer for para construir la pirámide hacia arriba
     for (let fila = 0; fila < altura / 2; fila++) {
         let String = "";
@@ -30,4 +30,4 @@ function rectangulo(altura) {
     }
 };
 
-rectangulo(10);
+rombo(10);
