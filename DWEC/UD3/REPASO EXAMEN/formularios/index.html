@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
@@ -13,34 +14,34 @@
         <br>
 
         <label for="nombre">Nombre: </label>
-        <input type="text" name="nombre" id="nombre" required minlength="3">
+        <input type="text" name="nombre" id="nombre" required minlength="3"><br>
         <span class="error" id="errorNombre"></span>
         <br><br>
 
         <label for="correo">Correo Electrónico: </label>
-        <input type="email" name="correo" id="correo" required>
+        <input type="email" name="correo" id="correo" required><br>
         <span class="error" id="errorEmail"></span>
         <br><br>
 
         <label for="contrasena">Contraseña: </label>
         <input type="password" id="contrasena" name="contrasena" required
-            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,_?¿¡\-+=]).{8,}" />
+            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,_?¿¡\-+=]).{8,}" /><br>
         <span class="error" id="errorContrasena"></span>
         <br><br>
 
-        <label for="confirmarContrasena">Contraseña: </label>
+        <label for="confirmarContrasena">Repetir Contraseña: </label>
         <input type="password" id="confirmarContrasena" name="confirmarContrasena" required
-            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,_?¿¡\-+=]).{8,}" />
+            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,_?¿¡\-+=]).{8,}" /><br>
         <span class="error" id="errorConfirmarContrasena"></span>
         <br><br>
 
         <label for="fechaNacimiento">Fecha de Nacimiento: </label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required />
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required /><br>
         <span class="error" id="errorNacimiento"></span>
         <br><br>
 
         <label for="telefono">Telefono (opcional)</label>
-        <input type="tel" id="telefono" name="telefono" pattern="\d{9}" />
+        <input type="tel" id="telefono" name="telefono" pattern="\d{9}" /><br>
         <span class="error" id="errorTelefono"></span>
         <br><br>
 
@@ -50,12 +51,12 @@
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
             <option value="otro">Otro</option>
-        </select>
+        </select><br>
         <span class="error" id="errorGenero"></span>
         <br><br>
 
         <label for="terminos">Acepto los términos y condiciones</label>
-        <input type="checkbox" id="terminos" name="terminos" required />
+        <input type="checkbox" id="terminos" name="terminos" required /><br>
         <span class="error" id="errorCondiciones"></span>
         <br><br>
 

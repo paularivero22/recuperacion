@@ -1,1 +1,13 @@
- 
+.error {
+    color: rgb(170, 5, 5);
+}
+
+.valido {
+    background-color: rgba(0, 128, 0, 0.377);
+    border: 1px solid black;
+}
+
+.invalido {
+    background-color: rgba(255, 0, 0, 0.377);
+    border: 1px solid black;
+}
