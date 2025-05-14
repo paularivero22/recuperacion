@@ -40,3 +40,12 @@
     overflow: visible;
     white-space: wrap;
 }
+
+.botonPagina {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.activa {
+    border: 2px solid green;
+}
