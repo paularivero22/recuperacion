@@ -5,24 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
-    <script src="usersScript.js"></script>
+    <link rel="stylesheet" href="../estilos.css">
 </head>
 
 <body>
     <h1>Usuarios</h1>
     <label>Mostrar por página:
         <select id="mostrarPorPagina">
-            <option value="5" selected>5</option>
+            <option value="all" selected>Todos</option>
+            <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
-            <option value="all">Todos</option>
         </select>
     </label>
     <input type="text" id="buscar" placeholder="Buscar por nombre...">
+
     <div id="contenedor"></div>
     <div id="paginador"></div>
 
-    <script src="../js/users.js"></script>
+    <script src="../js/users.js" type="module"></script>
 </body>
 
 </html>

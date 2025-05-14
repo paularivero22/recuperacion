@@ -7,7 +7,6 @@ async function obtenerDatos(endpoint) {
             throw new AplicacionError(`Error HTTP: ${response.status}`, null);
         }
         const data = await response.json();
-        console.log("Datos recibidos:", data);
         return data;
     } catch (error) {
         console.error("Error al realizar la solicitud:", error.message);
@@ -34,5 +33,7 @@ async function mostrarTarjetas(div) {
     div.appendChild(tarjetas);
 }
 
-let contenido = document.getElementById('contenido');
-mostrarTarjetas(contenido);
+/*let contenido = document.getElementById('contenido');
+mostrarTarjetas(contenido);*/
+
+export default obtenerDatos;

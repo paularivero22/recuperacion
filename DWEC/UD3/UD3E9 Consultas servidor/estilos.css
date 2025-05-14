@@ -17,3 +17,26 @@
     padding: 10px;
     cursor: pointer;
 }
+
+.fila {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+}
+
+.fila:hover {
+    background-color: rgba(255, 0, 0, 0.226);
+}
+
+.fila div {
+    flex: 1;
+    padding: 4px 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.fila div:hover {
+    overflow: visible;
+    white-space: wrap;
+}
