@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h1>Formulario</h1>
+        <br>
+
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" required minlength="3">
+        <span class="error" id="errorNombre"></span>
+        <br><br>
+
+        <label for="correo">Correo Electrónico: </label>
+        <input type="email" name="correo" id="correo" required>
+        <span class="error" id="errorEmail"></span>
+        <br><br>
+
+        <label for="contrasena">Contraseña: </label>
+        <input type="password" id="contrasena" name="contrasena" required
+            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,_?¿¡\-+=]).{8,}" />
+        <span class="error" id="errorContrasena"></span>
+        <br><br>
+
+        <label for="confirmarContrasena">Contraseña: </label>
+        <input type="password" id="confirmarContrasena" name="confirmarContrasena" required
+            pattern="(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*.,_?¿¡\-+=]).{8,}" />
+        <span class="error" id="errorConfirmarContrasena"></span>
+        <br><br>
+
+        <label for="fechaNacimiento">Fecha de Nacimiento: </label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required />
+        <span class="error" id="errorNacimiento"></span>
+        <br><br>
+
+        <label for="telefono">Telefono (opcional)</label>
+        <input type="tel" id="telefono" name="telefono" pattern="\d{9}" />
+        <span class="error" id="errorTelefono"></span>
+        <br><br>
+
+        <label for="genero">Genero: </label>
+        <select name="genero" id="genero" required>
+            <option value="">Seleccione</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select>
+        <span class="error" id="errorGenero"></span>
+        <br><br>
+
+        <label for="terminos">Acepto los términos y condiciones</label>
+        <input type="checkbox" id="terminos" name="terminos" required />
+        <span class="error" id="errorCondiciones"></span>
+        <br><br>
+
+        <input type="submit" id="enviar" value="Enviar">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
