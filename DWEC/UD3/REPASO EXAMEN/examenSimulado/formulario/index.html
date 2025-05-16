@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Formulario</h1>
+    <form id="formulario">
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" name="nombre" minlength="3" required>
+        <span id="errorNombre"></span>
+        <br><br>
+
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" required>
+        <span id="errorEmail"></span>
+        <br><br>
+
+        <label for="contrasenia">Contraseña: </label>
+        <input type="password" id="contrasenia" name="contrasenia" required minlength="8">
+        <span id="errorContrasenia"></span>
+        <br><br>
+
+        <label for="confirmarContrasenia">Repetir Contraseña: </label>
+        <input type="password" id="confirmarContrasenia" name="confirmarContrasenia">
+        <span id="errorConfirmarContrasenia"></span>
+        <br><br>
+
+        <label for="telefono">Telefono: </label>
+        <input type="tel" id="telefono" name="telefono">
+        <span id="errorTelefono"></span>
+        <br><br>
+
+        <label for="genero">Género: </label>
+        <select id="genero" name="genero">
+            <option value="" selected>Selecciona un genero</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+        </select>
+        <span id="errorGenero"></span>
+        <br><br>
+        
+        <label for="terminos">Aceptar terminos y condiciones</label>
+        <input type="checkbox" id="terminos" name="terminos">
+        <span id="errorTerminos"></span>
+        <br><br>
+
+        <button id="enviar">Enviar</button>
+    </form>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

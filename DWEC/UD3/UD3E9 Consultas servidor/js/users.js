@@ -2,12 +2,19 @@ import obtenerDatos from './script.js';
 
 let paginaActual = 1;
 
-async function cargarUsuarios() {
+async function cargarUsuarios(buscador = "", start = 0, limit = 10) {
     try {
-        const usuarios = await obtenerDatos('users');
+        let url = `users?_start=${start}&_limit=${limit}`;
+
+        if (buscador.trim() !== "") {
+            url += `&name_like=${encodeURIComponent(buscador)}`;
+        }
+
+        const usuarios = await obtenerDatos(url);
         return usuarios;
     } catch (error) {
         console.log('Error', error);
+        return [];
     }
 }
 
@@ -15,9 +22,16 @@ async function mostrarTablaUsuarios(buscar, numeroUsuarios) {
     const usuarios = await cargarUsuarios();
     let busqueda = buscar.toLowerCase();
 
-    let usuariosFiltrados = usuarios.filter(usuario =>
+    const usuariosFiltrados = usuarios.filter(usuario =>
         usuario.name.toLowerCase().includes(busqueda)
     );
+
+    if (usuariosFiltrados.length === 0) {
+        contenedor.innerHTML = "<p>No se encontraron usuarios.</p>";
+        document.getElementById('paginador').innerHTML = "";
+        return;
+    }
+
 
     //si es el valor "all" el total de elementos por pagina son todos los que hay
     let elementosPorPagina;
@@ -47,9 +61,48 @@ async function mostrarTablaUsuarios(buscar, numeroUsuarios) {
     const contenedor = document.getElementById('contenedor');
     contenedor.innerHTML = "";
 
+    let filaTitulos = document.createElement('div');
+    filaTitulos.classList.add('fila');
+
+    let nombre = document.createElement('div');
+    nombre.innerHTML = "Nombre";
+
+    let usuario = document.createElement('div');
+    usuario.innerHTML = "Usuario";
+
+    let email = document.createElement('div');
+    email.innerHTML = "Email";
+
+    let direccion = document.createElement('div');
+    direccion.innerHTML = "Direccion";
+
+    let telefono = document.createElement('div');
+    telefono.innerHTML = "Telefono";
+
+    let paginaWeb = document.createElement('div');
+    paginaWeb.innerHTML = "Pagina Web";
+
+    let compania = document.createElement('div');
+    compania.innerHTML = "Compañia";
+
+    let acciones = document.createElement('div');
+    acciones.innerHTML = "Acciones";
+
+    filaTitulos.appendChild(nombre);
+    filaTitulos.appendChild(usuario);
+    filaTitulos.appendChild(email);
+    filaTitulos.appendChild(direccion);
+    filaTitulos.appendChild(telefono);
+    filaTitulos.appendChild(paginaWeb);
+    filaTitulos.appendChild(compania);
+    filaTitulos.appendChild(acciones);
+
+    tabla.appendChild(filaTitulos);
+
     for (let i = inicio; i < fin; i++) {
         let usuario = usuariosFiltrados[i];
-        
+        let filaSeleccionada = null;
+
         //crear cada fila y ponerle la clase para el css
         let fila = document.createElement('div');
         fila.classList.add('fila');
@@ -65,7 +118,7 @@ async function mostrarTablaUsuarios(buscar, numeroUsuarios) {
         email.innerHTML = usuario.email;
 
         let address = document.createElement('div');
-        address.innerHTML = JSON.stringify(usuario.address);
+        address.innerHTML = `${usuario.address.street}, ${usuario.address.suite}, ${usuario.address.city}`;
 
         let phone = document.createElement('div');
         phone.innerHTML = usuario.phone;
@@ -74,7 +127,13 @@ async function mostrarTablaUsuarios(buscar, numeroUsuarios) {
         website.innerHTML = usuario.website;
 
         let company = document.createElement('div');
-        company.innerHTML = JSON.stringify(usuario.company);
+        company.innerHTML = usuario.company.name;
+
+        let acciones = document.createElement('div');
+        acciones.innerHTML = `
+            <button class="btn-editar" data-id="${usuario.id}">Editar</button>
+            <button class="btn-eliminar" data-id="${usuario.id}">Eliminar</button>
+        `;
 
         //añadir los campos a la fila
         fila.appendChild(name);
@@ -84,13 +143,33 @@ async function mostrarTablaUsuarios(buscar, numeroUsuarios) {
         fila.appendChild(phone);
         fila.appendChild(website);
         fila.appendChild(company);
+        fila.appendChild(acciones);
+
+        fila.addEventListener("click", function () {
+            let seleccionadas = document.querySelectorAll('.seleccionada');
+            let yaSeleccionada = fila.classList.contains('seleccionada');
+
+            for (let seleccionada of seleccionadas) {
+                seleccionada.classList.remove('seleccionada');
+            }
+
+            if (yaSeleccionada) {
+                fila.classList.remove('seleccionada');
+                filaSeleccionada = null;
+            } else {
+                fila.classList.add('seleccionada');
+                filaSeleccionada = fila;
+            }
+            console.log(filaSeleccionada);
+            console.log(botonEditar);
+        });
 
         //añadir las filas a la tabla
         tabla.appendChild(fila);
     }
 
     contenedor.appendChild(tabla);
-    
+
     crearPaginador(totalPaginas);
 }
 

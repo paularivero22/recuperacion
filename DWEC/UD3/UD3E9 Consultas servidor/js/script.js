@@ -20,20 +20,29 @@ async function obtenerDatos(endpoint) {
 
 async function mostrarTarjetas(div) {
     const entidades = ['users', 'todos', 'posts', 'comments', 'albums', 'photos'];
+    
     let tarjetas = document.createElement('div');
     tarjetas.classList.add('tarjetas');
 
-    for(let i = 0; i < entidades.length; i++) {
+    for (let i = 0; i < entidades.length; i++) {
+        let entidad = entidades[i];
         let tarjeta = document.createElement('div');
-        let datos = await obtenerDatos(entidades[i]);
-        
-        tarjeta.innerHTML = `<p>${entidades[i]}</p> <br/> <p>Total: ${datos.length}`;
+
+        let datos = await obtenerDatos(entidad);
+
+        tarjeta.innerHTML = `<p>${entidad}</p> <br/> <p>Total: ${datos.length}`;
+
+        tarjeta.addEventListener('click', () => {
+            window.location.href = `./entidades/${entidad}.html`;
+        });
+
         tarjetas.appendChild(tarjeta);
     }
+    let contenido = document.getElementById('contenido');
     div.appendChild(tarjetas);
 }
 
-/*let contenido = document.getElementById('contenido');
-mostrarTarjetas(contenido);*/
+let contenido = document.getElementById('contenido');
+mostrarTarjetas(contenido);
 
 export default obtenerDatos;

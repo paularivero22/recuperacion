@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de alumnos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Lista de Alumnos</h1>
+    <input type="text" id="buscar" placeholder="Buscar por nombre..."><br>
+    <br><br>
+    <div id="contenedor"></div>
+
+    <form id="formAlumno">
+        <h3>Editar/Crear Alumno</h3>
+        <label for="inputNombre">Nombre: </label>
+        <input type="text" id="inputNombre"/><br><br>
+
+        <label for="inputEmail">Email: </label>
+        <input type="email" id="inputEmail"/><br><br>
+
+        <label for="inputTelefono">Telefono: </label>
+        <input type="tel" id="inputTelefono"/><br><br>
+        <button id="guardar">Guardar</button>
+        <button id="limpiar">Limpiar</button>
+    </form>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

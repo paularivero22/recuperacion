@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos</title>
+    <link rel="stylesheet" href="../estilos.css">
+</head>
+<body>
+    <h1>Tareas Pendientes</h1>
+    <label for="mostrarPorPagina">Mostrar por página</label>
+    <select id="mostrarPorPagina" name="mostrarPorPagina">
+        <option value="all">Todos</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+
+    <input type="text" id="buscar" placeholder="Buscar por titulo...">
+
+    <div id="contenedor"></div>
+
+    <div id="paginador"></div>
+
+    <script src="../js/todos.js" type="module"></script>
+</body>
+</html>

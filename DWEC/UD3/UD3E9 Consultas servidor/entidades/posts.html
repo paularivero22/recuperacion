@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicaciones</title>
+</head>
+<body>
+    <h1>Publicaciones</h1>
+    <label for="elementosPorPagina">Mostrar por pagina</label>
+    <select id="elementosPorPagina" name="elementosPorPagina">
+        <option value="all">Todas</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+    
+    <input type="text" id="buscador" placeholder="Buscar por titulo">
+
+    <div id="contenedor"></div>
+
+    <div id="paginador"></div>
+
+    <script src="../js/posts.js" type="module"></script>
+</body>
+</html>

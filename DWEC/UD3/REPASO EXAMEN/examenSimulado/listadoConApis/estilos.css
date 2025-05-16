@@ -2,23 +2,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.tarjetas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.tarjetas div {
-    width: 200px;
-    height: 200px;
-    margin: 15px;
-    background-color: antiquewhite;
-    border-radius: 10px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-
 .fila {
     display: flex;
     border-bottom: 1px solid #ccc;
@@ -42,13 +25,21 @@
     white-space: wrap;
 }
 
-.botonPagina {
-    margin-right: 10px;
-    margin-top: 10px;
+.fila-titulo {
+    background-color: #e0dede;
+    font-weight: bold;
 }
 
-.activa {
-    border: 2px solid green;
+.fila-titulo:hover {
+    background-color: #e0dede;
+}
+
+.seleccionada {
+    border: 2px solid red;
+}
+
+button {
+    cursor: pointer;
 }
 
 .seleccionada {
