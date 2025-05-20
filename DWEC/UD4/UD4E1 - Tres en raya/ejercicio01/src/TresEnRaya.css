@@ -1,0 +1,13 @@
+.tablero {
+    border: 1px solid black;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 450px;
+}
+
+.tablero div {
+    height: 148px;
+    width: 148px;
+    border: 1px solid black;
+}
