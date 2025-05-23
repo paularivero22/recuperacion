@@ -1,13 +1,18 @@
+import { useState } from "react";
 
-function Casilla({numCasilla, letra, comunicarPadre}) {
+function Casilla({numFila, numColumna, letra, comunicarPadre}) {
+    const [mostrar, setMostrar] = useState(false);
+
     const handleClick = () => {
-        comunicarPadre(numCasilla);
+        comunicarPadre(numFila, numColumna);
     }   
 
 
     return (
-        <div onClick={handleClick}>
-            <h1>`${letra}`</h1>
+        <div onClick={handleClick} className="casilla">
+            <h1>{letra}</h1>
         </div>
     );
 }
+
+export default Casilla;
