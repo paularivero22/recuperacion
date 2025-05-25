@@ -10,6 +10,7 @@ function validarFormulario(nombre, email, contrasenia, confirmarContrasenia, tel
         .then(() => true);
 }
 
+
 function validarNombre(nombre) {
     return new Promise((resuelve, rechazo) => {
         if (nombre.length < 3) {
