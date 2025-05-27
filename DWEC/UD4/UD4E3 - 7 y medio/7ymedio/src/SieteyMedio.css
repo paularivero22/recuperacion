@@ -77,3 +77,39 @@ button:focus-visible {
     justify-content: center;
     align-items: center;
 }
+
+.carta {
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+ul {
+    display: flex;
+}
+
+ul li{
+    list-style-type: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.carta {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 150px;
+    align-items: center;
+    padding: 10px;
+    margin-left: 15px;
+}
+
+.valor {
+    font-size: 20px;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+}

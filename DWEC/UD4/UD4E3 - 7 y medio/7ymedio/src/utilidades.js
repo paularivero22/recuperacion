@@ -14,7 +14,7 @@ function barajarCartas() {
 }
 
 function sumarCartas(mano) {
-    let suma;
+    let suma = 0;
     for(let carta of mano) {
         suma += carta.valor;
     }
