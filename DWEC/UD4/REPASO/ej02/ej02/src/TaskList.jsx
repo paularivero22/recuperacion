@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 
 function TaskList() {
     const [tarea, setTarea] = useState("");
     const [tareas, setTareas] = useState([]);
-    const esPrimerRender = useRef(true);
 
     const agregarTarea = () => {
         if (tarea != "") {
