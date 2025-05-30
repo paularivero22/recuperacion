@@ -1,0 +1,19 @@
+.coches {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.coche {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 120px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: 15px;
+    padding: 10px;
+}
