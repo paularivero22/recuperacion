@@ -1,0 +1,31 @@
+table {
+    border-collapse: collapse;
+    width: 90vw;
+}
+
+.cuerpo {
+    width: 90vw;
+    margin: 20px;
+}
+
+button, select {
+    margin-bottom: 25px;
+    margin-left: 15px;
+    padding: 10px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: rgb(231, 231, 231);
+}

@@ -3,7 +3,7 @@ import AppLayout from "../components/AppLayout";
 
 import InicioPage from "../pages/InicioPage";
 import CochesPage from "../pages/CochesPage";
-import DetallesPage from "../pages/DetallesCochePage";
+import DetallesCochePage from "../pages/DetallesCochePage";
 import Login from "../pages/Login";
 import Error from "../pages/Error";
 
@@ -14,7 +14,7 @@ function AppEnrutador() {
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<InicioPage />} />
                     <Route path="coches" element={<CochesPage />} />
-                    <Route path="detallesCoche/:id" element={<DetallesPage />} />
+                    <Route path="detallesCoche/:id" element={<DetallesCochePage />} />
                     <Route path="login" element={<Login />} />
                     <Route path="*" element={<Error />} />
                 </Route>
