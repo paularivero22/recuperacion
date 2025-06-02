@@ -1,9 +1,16 @@
+.contenido {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .coches {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-} 
+}
 
 .coche {
     display: flex;

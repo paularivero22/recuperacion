@@ -1,0 +1,25 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  text-align: center;
+  flex-direction: column;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.perfil img {
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.perfil span {
+  font-size: 42px;
+}
+
+.perfil span::first-letter {
+  text-transform: capitalize;
+}

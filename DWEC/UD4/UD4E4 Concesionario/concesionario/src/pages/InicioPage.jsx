@@ -21,21 +21,23 @@ function InicioPage() {
 
     return (
         <>
-            <h1>Pagina de Inicio</h1>
-            <div className='coches'>
-                {coches && coches.map((coche, index) => {
-                    return (
-                        <div className='coche' key={index}>
-                            <b><p>{coche.marca} {coche.modelo}</p></b>
-                            <p>Año: {coche.anno}</p>
-                            <p>Km: {coche.km}</p>
-                            <p>Color: {coche.color}</p>
-                            <p>
-                                <Link to={`/detallesCoche/${coche.id}`}>Ver ficha</Link>
-                            </p>
-                        </div>
-                    );
-                })}
+            <div className='contenido'>
+                <h1>Pagina de Inicio</h1>
+                <div className='coches'>
+                    {coches && coches.map((coche, index) => {
+                        return (
+                            <div className='coche' key={index}>
+                                <b><p>{coche.marca} {coche.modelo}</p></b>
+                                <p>Año: {coche.anno}</p>
+                                <p>Km: {coche.km}</p>
+                                <p>Color: {coche.color}</p>
+                                <p>
+                                    <Link to={`/detallesCoche/${coche.id}`}>Ver ficha</Link>
+                                </p>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </>
     );
