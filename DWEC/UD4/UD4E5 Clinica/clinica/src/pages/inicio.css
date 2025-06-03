@@ -1,0 +1,47 @@
+.titulo {
+    position: relative;
+    height: 250px;
+    background-image: url("../assets/clinica.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* overlay oscuro */
+    z-index: 0;
+}
+
+.titulo h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    padding: 0 1rem;
+}
+
+.texto {
+    padding: 35px;
+}
+
+.noticias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noticias .articulo {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 30px;
+    padding: 20px 40px 20px 40px;
+}
