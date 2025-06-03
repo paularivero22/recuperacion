@@ -1,29 +1,39 @@
 import { useContext, useState } from "react";
 import { SeguridadContext } from "../context/SeguridadProvider";
 import userImg from '../assets/user.jpg';
+import usuarios from '../data/usuarios';
 import './login.css';
 
 function Login() {
     const { datos, logIn, logOut } = useContext(SeguridadContext);
-    const [nombre, setNombre] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [mensaje, setMensaje] = useState("");
 
-    function handleClick() {
-        if (datos.tienePermisos) {
-            setNombre("");
-            logOut();
-        } else {
-            if (nombre === "") {
-                return;
-            }
-            /* No es recomendable buscar directamente */
-            //const nombre =
-            document.querySelector('input[name="nombre"]').value;
-            logIn(nombre);
+    const entrar = () => {
+        const usuario = usuarios.find(u => u.username === username);
+
+        if (!usuario) {
+            setMensaje("El usuario no existe");
+            return;
         }
-    }
-    const handleChange = (e) => {
-        setNombre(e.target.value);
+
+        if (usuario.password !== password) {
+            setMensaje("La contraseña es incorrecta");
+            return;
+        }
+
+        setMensaje("");
+        logIn(usuario.username);
     };
+
+
+    const salir = () => {
+        setUsername("");
+        setPassword("");
+        setMensaje("");
+        logOut();
+    }
 
     return (
         <>
@@ -39,18 +49,33 @@ function Login() {
                         <br />
                         <span>{datos.usuario}</span>
                         <br />
-                        <button onClick={handleClick}>Salir</button>
+                        <button onClick={salir}>Salir</button>
                     </div>
                 ) : (
                     <>
-                        <b><span>Nombre: </span></b>
-                        <input
-                            type="text"
-                            name="nombre"
-                            value={nombre}
-                            onChange={handleChange}
-                        />
-                        <button onClick={handleClick}>Entrar</button>
+                        <h1>Iniciar Sesion</h1>
+                        <label>Nombre de Usuario:
+                            <input
+                                type="text"
+                                name="username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            /></label>
+
+                        <label>Contraseña
+                            <input
+                                type="password"
+                                name="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            /></label>
+
+                        <button onClick={entrar}>Entrar</button>
+
+                        {mensaje &&
+                            <p className="error">{mensaje}</p>
+                        }
+
                     </>
                 )}
             </div>

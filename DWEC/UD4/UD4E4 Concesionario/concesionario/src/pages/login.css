@@ -2,13 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
+  height: 100vh;
   text-align: center;
   flex-direction: column;
 }
 
+input {
+  margin-left: 15px;
+}
+
 button {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .perfil img {
@@ -22,4 +26,10 @@ button {
 
 .perfil span::first-letter {
   text-transform: capitalize;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
 }
