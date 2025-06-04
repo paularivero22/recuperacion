@@ -1,0 +1,9 @@
+.detalle input,
+select {
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.detalle textarea {
+    margin-bottom: 15px;
+}

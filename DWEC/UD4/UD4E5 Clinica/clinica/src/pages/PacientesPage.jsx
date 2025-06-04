@@ -35,8 +35,8 @@ function PacientesPage() {
     }
 
     const handlerBuscar = async () => {
-        await obtenerPacientes(filtro);
-        setPaginaActual(1); // Reinicia a la primera página
+        await obtenerPacientes(filtro.toLowerCase());
+        setPaginaActual(1); // Reinicia a la primera pagina
     };
 
 
@@ -58,7 +58,7 @@ function PacientesPage() {
     };
 
     const nuevoPaciente = () => {
-
+        <Link to={`/detallesPaciente/`}>Ver Paciente</Link>
     }
 
     return (
@@ -82,6 +82,7 @@ function PacientesPage() {
                             } else {
                                 setElementosPorPagina(parseInt(e.target.value));
                             }
+                            setPaginaActual(1);
                         }}
                     >
                         <option value={"todos"}>Todos</option>
