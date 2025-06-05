@@ -6,34 +6,20 @@ window.addEventListener("load", function () {
 
     desplegable.addEventListener("click", function () {
         abierto = !abierto;
-
         if (!abierto) {
-            opciones.classList.add("oculto");
+            opciones.classList.toggle("oculto", !abierto);
         } else {
-            opciones.classList.remove("oculto");
+            opciones.classList.remove("oculto", !abierto);
         }
-
-    });
-    
-    const html = document.getElementById("html");
-    const css = document.getElementById("css");
-    const javascript = document.getElementById("javascript");
-
-    html.addEventListener("click", function () {
-        desplegable.textContent = "html";
-        opciones.classList.add("oculto");
-        abierto = false;
     });
 
-    css.addEventListener("click", function () {
-        desplegable.textContent = "css";
-        opciones.classList.add("oculto");
-        abierto = false;
-    });
-
-    javascript.addEventListener("click", function () {
-        desplegable.textContent = "javascript";
-        opciones.classList.add("oculto");
-        abierto = false;
-    });
+    const opcion = document.querySelectorAll(".opcion");
+    for (let opc of opcion) {
+        opc.addEventListener("click", function () {
+            const valor = opc.getAttribute("data-value");
+            desplegable.textContent = valor;
+            opciones.classList.add("oculto");
+            abierto = false;
+        });
+    }
 });
