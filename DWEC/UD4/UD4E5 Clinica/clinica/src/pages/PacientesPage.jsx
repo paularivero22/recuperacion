@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from "react-router-dom"
 import $negocio from '../core/negocio';
-import './pacientes.css';
+import './tablas.css';
+import { SeguridadContext } from "../context/SeguridadProvider";
 
 function PacientesPage() {
+    const { datos } = useContext(SeguridadContext);
+
     const [pacientes, setPacientes] = useState([]);
 
     const [filtro, setFiltro] = useState("");
@@ -62,95 +65,101 @@ function PacientesPage() {
     }
 
     return (
-        <div className='contenido'>
-            <div className='filtros'>
-                <input
-                    type='text'
-                    name='busqueda'
-                    value={filtro}
-                    placeholder='Buscar...'
-                    onChange={(e) => setFiltro(e.target.value)}
-                />
-                <button onClick={handlerBuscar}>Buscar</button>
+        <>
+            {datos.rol === "gestion" || datos.rol === "admin" ? (
+                <div className='contenido'>
+                    <div className='filtros'>
+                        <input
+                            type='text'
+                            name='busqueda'
+                            value={filtro}
+                            placeholder='Buscar...'
+                            onChange={(e) => setFiltro(e.target.value)}
+                        />
+                        <button onClick={handlerBuscar}>Buscar</button>
 
-                <label>Mostrar por pagina:
-                    <select
-                        value={elementosPorPagina}
-                        onChange={(e) => {
-                            if (e.target.value === "todos") {
-                                setElementosPorPagina("todos");
-                            } else {
-                                setElementosPorPagina(parseInt(e.target.value));
-                            }
-                            setPaginaActual(1);
-                        }}
-                    >
-                        <option value={"todos"}>Todos</option>
-                        <option value={5}>5</option>
-                        <option value={10}>10</option>
-                        <option value={20}>15</option>
-                    </select>
-                </label>
+                        <label>Mostrar por pagina:
+                            <select
+                                value={elementosPorPagina}
+                                onChange={(e) => {
+                                    if (e.target.value === "todos") {
+                                        setElementosPorPagina("todos");
+                                    } else {
+                                        setElementosPorPagina(parseInt(e.target.value));
+                                    }
+                                    setPaginaActual(1);
+                                }}
+                            >
+                                <option value={"todos"}>Todos</option>
+                                <option value={5}>5</option>
+                                <option value={10}>10</option>
+                                <option value={20}>15</option>
+                            </select>
+                        </label>
 
-                <br></br><br></br>
-                <button onClick={nuevoPaciente}>Nuevo Paciente</button>
-            </div>
+                        <br></br><br></br>
+                        <button onClick={nuevoPaciente}>Nuevo Paciente</button>
+                    </div>
 
-            <div className='pacientes'>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Dni</th>
-                            <th>Email</th>
-                            <th>Telefono</th>
-                            <th>Fecha de Nacimiento</th>
-                            <th>Sexo</th>
-                            <th>Direccion</th>
-                            <th>Seguro Medico</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {pacientesMostrados.map((paciente, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td>{paciente.nombre}</td>
-                                    <td>{paciente.dni}</td>
-                                    <td>{paciente.email}</td>
-                                    <td>{paciente.telefono}</td>
-                                    <td>{paciente.fechaNacimiento}</td>
-                                    <td>{paciente.sexo}</td>
-                                    <td>{paciente.direccion}</td>
-                                    <td>{paciente.seguroMedico}</td>
-                                    <td>
-                                        <button onClick={() => eliminarPaciente(paciente.id)}>Eliminar</button>
-                                        <Link to={`/detallesPaciente/${paciente.id}`}>Ver Paciente</Link>
-                                    </td>
+                    <div className='pacientes'>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Dni</th>
+                                    <th>Email</th>
+                                    <th>Telefono</th>
+                                    <th>Fecha de Nacimiento</th>
+                                    <th>Sexo</th>
+                                    <th>Direccion</th>
+                                    <th>Seguro Medico</th>
+                                    <th>Acciones</th>
                                 </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-                <div className="paginador">
-                    <button
-                        onClick={() => setPaginaActual(pagina => Math.max(pagina - 1, 1))}
-                    >
-                        Anterior
-                    </button>
+                            </thead>
 
-                    <span>Pagina {paginaActual} de {totalPaginas}</span>
+                            <tbody>
+                                {pacientesMostrados.map((paciente, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{paciente.nombre}</td>
+                                            <td>{paciente.dni}</td>
+                                            <td>{paciente.email}</td>
+                                            <td>{paciente.telefono}</td>
+                                            <td>{paciente.fechaNacimiento}</td>
+                                            <td>{paciente.sexo}</td>
+                                            <td>{paciente.direccion}</td>
+                                            <td>{paciente.seguroMedico}</td>
+                                            <td>
+                                                <button onClick={() => eliminarPaciente(paciente.id)}>Eliminar</button>
+                                                <Link to={`/detallesPaciente/${paciente.id}`}>Ver Paciente</Link>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                        <div className="paginador">
+                            <button
+                                onClick={() => setPaginaActual(pagina => Math.max(pagina - 1, 1))}
+                            >
+                                Anterior
+                            </button>
 
-                    <button
-                        onClick={() => setPaginaActual(pagina => Math.min(pagina + 1, totalPaginas))}
-                    >
-                        Siguiente
-                    </button>
+                            <span>Pagina {paginaActual} de {totalPaginas}</span>
+
+                            <button
+                                onClick={() => setPaginaActual(pagina => Math.min(pagina + 1, totalPaginas))}
+                            >
+                                Siguiente
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-
-        </div>
+            ) : (
+                <h2>No tienes permiso para acceder a esta sección</h2>
+            )}
+        </>
     );
 }
 

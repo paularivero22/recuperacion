@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  font-family: sans-serif;
+}
+
+.contenedor {
+  width: 220px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.desplegable {
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+}
+
+.opciones {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+#html, #css, #javascript {
+  padding: 12px 15px;
+  border-top: 1px solid #eee;
+}
+
+.oculto {
+  display: none;
+}

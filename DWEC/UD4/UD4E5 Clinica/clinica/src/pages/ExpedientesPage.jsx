@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from "react-router-dom"
 import $negocio from '../core/negocio';
-import './pacientes.css';
+import './tablas.css';
+import { SeguridadContext } from "../context/SeguridadProvider";
 
 function ExpedientesPage() {
+    const { datos } = useContext(SeguridadContext);
+
     const [pacientes, setPacientes] = useState([]);
 
     const [filtro, setFiltro] = useState("");
@@ -28,6 +31,13 @@ function ExpedientesPage() {
     async function obtenerPacientes(filtro = '', inicio = 0, limite) {
         try {
             let pacientesData = await $negocio.obtenerPacientes(filtro, inicio, limite);
+
+            if (pacientesData.length === 0) {
+                $negocio.limpiarLocalStorage();
+                window.location.reload();
+                return;
+            }
+
             setPacientes(pacientesData);
         } catch (e) {
             console.log(e);
@@ -58,81 +68,88 @@ function ExpedientesPage() {
     };
 
     return (
-        <div className='contenido'>
-            <div className='filtros'>
-                <input
-                    type='text'
-                    name='busqueda'
-                    value={filtro}
-                    placeholder='Buscar...'
-                    onChange={(e) => setFiltro(e.target.value)}
-                />
-                <button onClick={handlerBuscar}>Buscar</button>
+        <>
+            {datos.rol === "medico" || datos.rol === "admin" ?
+                (
+                    <div className='contenido'>
+                        <div className='filtros'>
+                            <input
+                                type='text'
+                                name='busqueda'
+                                value={filtro}
+                                placeholder='Buscar...'
+                                onChange={(e) => setFiltro(e.target.value)}
+                            />
+                            <button onClick={handlerBuscar}>Buscar</button>
 
-                <label>Mostrar por pagina:
-                    <select
-                        value={elementosPorPagina}
-                        onChange={(e) => {
-                            if (e.target.value === "todos") {
-                                setElementosPorPagina("todos");
-                            } else {
-                                setElementosPorPagina(parseInt(e.target.value));
-                            }
-                            setPaginaActual(1);
-                        }}
-                    >
-                        <option value={"todos"}>Todos</option>
-                        <option value={5}>5</option>
-                        <option value={10}>10</option>
-                        <option value={20}>15</option>
-                    </select>
-                </label>
-            </div>
+                            <label>Mostrar por pagina:
+                                <select
+                                    value={elementosPorPagina}
+                                    onChange={(e) => {
+                                        if (e.target.value === "todos") {
+                                            setElementosPorPagina("todos");
+                                        } else {
+                                            setElementosPorPagina(parseInt(e.target.value));
+                                        }
+                                        setPaginaActual(1);
+                                    }}
+                                >
+                                    <option value={"todos"}>Todos</option>
+                                    <option value={5}>5</option>
+                                    <option value={10}>10</option>
+                                    <option value={20}>15</option>
+                                </select>
+                            </label>
+                        </div>
 
-            <div className='expedientes'>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Seguro Medico</th>
-                            <th>Telefono</th>
-                            <th>Expediente</th>
-                        </tr>
-                    </thead>
+                        <div className='expedientes'>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Seguro Medico</th>
+                                        <th>Telefono</th>
+                                        <th>Expediente</th>
+                                    </tr>
+                                </thead>
 
-                    <tbody>
-                        {pacientesMostrados.map((paciente, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td>{paciente.nombre}</td>
-                                    <td>{paciente.seguroMedico}</td>
-                                    <td>{paciente.telefono}</td>
-                                    <td>
-                                        <Link to={`/detallesExpediente/${paciente.id}`}>Ver Expediente</Link>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-                <div className="paginador">
-                    <button
-                        onClick={() => setPaginaActual(pagina => Math.max(pagina - 1, 1))}
-                    >
-                        Anterior
-                    </button>
+                                <tbody>
+                                    {pacientesMostrados.map((paciente, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{paciente.nombre}</td>
+                                                <td>{paciente.seguroMedico}</td>
+                                                <td>{paciente.telefono}</td>
+                                                <td>
+                                                    <Link to={`/detallesExpediente/${paciente.id}`}>Ver Expediente</Link>
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                            <div className="paginador">
+                                <button
+                                    onClick={() => setPaginaActual(pagina => Math.max(pagina - 1, 1))}
+                                >
+                                    Anterior
+                                </button>
 
-                    <span>Pagina {paginaActual} de {totalPaginas}</span>
+                                <span>Pagina {paginaActual} de {totalPaginas}</span>
 
-                    <button
-                        onClick={() => setPaginaActual(pagina => Math.min(pagina + 1, totalPaginas))}
-                    >
-                        Siguiente
-                    </button>
-                </div>
-            </div>
+                                <button
+                                    onClick={() => setPaginaActual(pagina => Math.min(pagina + 1, totalPaginas))}
+                                >
+                                    Siguiente
+                                </button>
+                            </div>
+                        </div>
 
-        </div>
+                    </div>
+                ) : (
+                    <h2>No tienes permiso para acceder a esta sección</h2>
+                )}
+        </>
     );
 }
 

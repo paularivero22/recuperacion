@@ -1221,7 +1221,7 @@ const datos = {
             username: "paco",
             password: "gestion123",
             tipo: "gestion",
-        },
+        }
     ],
 };
 
