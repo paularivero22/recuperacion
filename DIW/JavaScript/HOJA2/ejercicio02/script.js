@@ -1,25 +1,26 @@
-window.addEventListener("load", function () {
-    const desplegable = document.getElementById("desplegable");
-    const opciones = document.getElementById("opciones");
+
+window.addEventListener("DOMContentLoaded", function () {
+    const desplegable = this.document.getElementById("desplegable");
+    const opcionesDiv = this.document.getElementById("opciones");
+    const opciones = this.document.querySelectorAll(".opcion");
 
     let abierto = false;
 
     desplegable.addEventListener("click", function () {
         abierto = !abierto;
-        if (!abierto) {
-            opciones.classList.toggle("oculto", !abierto);
-        } else {
-            opciones.classList.remove("oculto", !abierto);
-        }
-    });
 
-    const opcion = document.querySelectorAll(".opcion");
-    for (let opc of opcion) {
-        opc.addEventListener("click", function () {
-            const valor = opc.getAttribute("data-value");
-            desplegable.textContent = valor;
-            opciones.classList.add("oculto");
+        if (abierto) {
+            opcionesDiv.classList.remove("oculto");
+        } else {
+            opcionesDiv.classList.add("oculto");
+        }
+    })
+
+    for (let opcion of opciones) {
+        opcion.addEventListener("click", function () {
+            desplegable.textContent = opcion.textContent;
             abierto = false;
-        });
+            opcionesDiv.classList.add("oculto");
+        })
     }
-});
+})

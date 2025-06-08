@@ -1,0 +1,42 @@
+/* Estilo base del cuerpo */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caja del texto*/
+.caja {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    text-align: center;
+    width: 150px;
+}
+
+/* Texto secreto */
+#texto {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Botón */
+#boton {
+    padding: 12px 24px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.oculto {
+    display: none;
+}

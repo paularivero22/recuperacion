@@ -1,22 +1,26 @@
+window.addEventListener("DOMContentLoaded", function() {
 
-window.addEventListener("load", function () {
     const boton = this.document.getElementById("boton");
+    const contadorP = this.document.getElementById("contador");
 
-    let contador = 0;
+    let contadorClicks = 0;
 
-    boton.addEventListener("click", function (e) {
+    boton.addEventListener("click", function(e) {
         e.preventDefault();
 
-        contador++;
-        if (contador < 5) {
+        contadorClicks++;
+        contadorP.textContent = contadorClicks;
+
+        if(contadorClicks < 5) {
             boton.textContent = "Haz clic";
-        } else if (contador < 10) {
+        } else if(contadorClicks === 5) {
             boton.textContent = "Vas en racha";
-        } else if (contador < 15) {
+        } else if (contadorClicks === 10) {
             boton.textContent = "Eres un campeon";
-        } else {
-            boton.textContent = "Increíble, se reinicia.";
-            contador = 0;
+        } else if(contadorClicks === 15) {
+            boton.textContent = "Increible, se reinicia";
+            contadorClicks = 0;
         }
+
     })
 })
