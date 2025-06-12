@@ -1,0 +1,23 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto {
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0;
+    font-size: 24px;
+
+    animation: aparecer 2s 1s forwards;
+}
+
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+    }
+}

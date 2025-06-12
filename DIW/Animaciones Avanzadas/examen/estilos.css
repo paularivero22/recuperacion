@@ -1,0 +1,81 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.peliculas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.pelicula {
+    height: 80px;
+    width: 100px;
+    background-color: lightgrey;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+.pelicula1 {
+    animation: aparecer 5s ease-in-out forwards,
+        ola 2s 5s infinite ease-in-out;
+}
+
+.pelicula2 {
+    animation: aparecer 5s ease-in-out forwards,
+        ola 2s 5.2s infinite ease-in-out;
+}
+
+.pelicula3 {
+    animation: aparecer 5s ease-in-out forwards,
+        ola 2s 5.4s infinite ease-in-out;
+}
+
+.pelicula4 {
+    animation: aparecer 5s ease-in-out forwards,
+        ola 2s 5.6s infinite ease-in-out;
+}
+
+.pelicula5 {
+    animation: aparecer 5s ease-in-out forwards,
+        ola 2s 5.8s infinite ease-in-out;
+}
+
+.pelicula6 {
+    animation: aparecer 5s ease-in-out forwards,
+        ola 2s 6s infinite ease-in-out;
+}
+
+@keyframes aparecer {
+    0% {
+        transform: translateY(500px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes ola {
+    0% {
+        transform: translateY(0)
+    }
+
+    25% {
+        transform: translateY(-80px);
+    }
+
+    50% {
+        transform: translateY(80px);
+    }
+
+    75% {
+        transform: translateY(0)
+    }
+}

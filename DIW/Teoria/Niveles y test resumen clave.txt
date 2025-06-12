@@ -1,0 +1,31 @@
+PRIORIDADES
+
+· Prioridad 1: criterios minimos, toda la web, ciertos usuarios NO PODRÁN acceder a información 
+· Prioridad 2: criterios optimos, toda la web, ciertos usuarios tendrán muchas DIFICULTADES para acceder a la información 
+· Prioridad 3: criterios avanzados, solo algunos componentes, ciertos usuarios podrán tener ALGUNAS DIFICULTADES para acceder a la información
+
+NIVELES DE CONFORMIDAD
+
+· Nivel A: prioridad 1
+· Nivel AA: prioridad 1 y prioridad 2
+· Nivel AAA: prioridad 1, prioridad 2 y prioridad 3
+
+METODOS PARA HACER REVISIONES PRELIMINARES
+
+· titulo de pagina descriptivos
+· imágenes relevantes con texto alterativo
+· encabezados en todas las paginas con h1 y h6
+· relación de contraste que se pueda leer bien
+· tamaño de texto proporcionado
+· es posible navegar con teclado
+· formularios con etiquetas, campos obligatorios, indicación de     errores
+· las animaciones pueden detenerse o ocultarse
+· alternativas de texto a multimedia
+· estructura básica de la pagina web
+
+HERRAMIENTAS DE ANALISIS DE ACCESIBILIDAD
+
+EXTENSIONES DE NAVEGADOR
+· WeDev Toolbar -> analizar la accesibilidad de páginas web
+· Wave Toolbar -> visualiza directamente en la página web los problemas de accesibilidad
+· ARIA DevTools -> inspeccionar el uso de atributos ARIA

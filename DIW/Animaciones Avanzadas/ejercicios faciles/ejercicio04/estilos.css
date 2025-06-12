@@ -1,0 +1,33 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton {
+    padding: 15px;
+    background-color: lightgrey;
+    border-color: transparent;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    animation: zoom 1s infinite ease-in-out;
+}
+
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    10% {
+        transform: scale(1);
+    }
+}

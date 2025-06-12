@@ -1,0 +1,64 @@
+PRINCIPIOS GENERALES
+- WCAG 2.0: englobó todas las pautas en 4 principios
+- WCAG 2.1: mejora las pautas para móviles
+
+PAUTAS DE ACCESIBILIDAD
+· Perceptibles -> 
+	alternativas de texto para todo lo que no sea texto
+	alternativas para los elementos multimedia
+	facilitar ver y escuchar el contenido
+
+· Operables -> 
+	todas las opciones disponibles desde teclado
+	tiempo suficiente para utilizar contenido
+	ayudar a los usuarios a encontrar contenido
+	operar a través de otras entradas además del teclado
+
+· Comprensible ->
+	texto legible y comprensible
+	la web funcione de manera predecible
+	ayudar a evitar y corregir errores
+
+· Robusto -> 
+	compatibilidad con agentes de usuarios actual y 	futuros
+
+TECNICAS PARA SATISFACER LOS REQUISITOS
+
+- TECNICAS GENERALES
+	enlaces en cada bloque que permita saltarlo y pasar 	entre ellos
+	permitir pausar y reiniciar el contenido
+	evitar limites de tiempo
+	que los usuarios no se queden atrapados en un contenido
+	ordenar en una secuencia coherente
+	mapa del sitio, migas de pan
+	alternativas de texto para lo que no sea texto
+	navegar con distintos dispositivos
+
+- TECNICAS HTML
+	orden de tabulación con controles de formularios
+	atributo alt
+	elemento title
+	texto en las etiquetas de enlace
+	bien estructurado dentro del código
+	etiquetas h1 - h6
+	etiqueta caption para las tablas de datos
+	etiqueta summary para descripcion de tablas de datos
+	lang para indicar idioma	
+ 	difinicion de abreviaturas con abbr
+	definiciones de palabra con dfn
+
+- TECNICAS CSS
+	letter-spacing
+	line-height
+	imágenes decorativas
+	margin y padding en vez de saltos de linea
+	distribuido con flex-box
+	media query y grid para columnas
+	focos con :focus
+
+- TECNICAS ARIA
+	aria-label: etuqetas a los objetos
+	aria-labelledby: alternativa de texto para lo que no es 	texto
+	aria-describedbt: descripción para los controles
+	aria-role = alert / aria-alertdialog: para errores
+	aria-invalid: para campos invalidos en formularios

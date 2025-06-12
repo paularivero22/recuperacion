@@ -1,0 +1,56 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circulo {
+    height: 20px;
+    width: 35px;
+    background-color: aqua;
+    border-radius: 100px;
+    margin: 10px;
+}
+
+.circulo1 {
+    animation: barras 1s infinite ease-in-out;
+}
+
+.circulo2 {
+    animation: barras 1s 1.5s infinite ease-in-out;
+}
+
+.circulo3 {
+    animation: barras 1s infinite ease-in-out;
+}
+
+.circulo4 {
+    animation: barras 1s 1.5s infinite ease-in-out;
+}
+
+.circulo5 {
+    animation: barras 1s infinite ease-in-out;
+}
+
+@keyframes barras {
+    0% {
+        height: 45px;
+    }
+
+    50% {
+        height: 150px;
+    }
+
+    100% {
+        height: 45px;
+    }
+}
